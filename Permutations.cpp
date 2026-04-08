@@ -24,6 +24,10 @@ Output: [[1]]
   Space complexity: O(n)
   Approach: a classic backtracking solution
 */
+
+#include <bits/stdc++.h>
+
+using namespace std;
 class Solution {
 private:
     void logic( vector<int>& num, vector<int>& temp, vector<bool>& used, vector<vector<int>>& ans)

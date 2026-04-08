@@ -18,6 +18,15 @@ Return the length of the longest substring containing the same letter you can ge
 */
 
 // SOLUTION:-
+/*
+    APPROACH:
+        Sliding window (variable size)
+        Frequency array (size 26)
+        characters to replace = window size - most frequent char
+    COMPLEXITY:
+        Time=O(n)
+        Space=O(1)
+*/
 
 # include <iostream>
 using namespace std;
@@ -41,13 +50,16 @@ int main()
     {
         freq[ s[right]-'A']++;
         maxfreq=max( maxfreq, freq[ s[right]-'A']);
+        int windowSize = right - left + 1;
 
-        while((right-left+1) - maxfreq > k)
+        //characters to replace = window size - most frequent char
+        while(windowSize - maxfreq > k)
         {
+            //Window Shrinking
             freq[ s[left]-'A']--;
             left++;
         }
-        ans=max(right+1-left,ans);
+        ans=max(windowSize,ans);
     }
 
     cout << "The lenght of longest substring is " << ans;

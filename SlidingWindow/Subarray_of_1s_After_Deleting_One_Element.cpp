@@ -27,3 +27,32 @@
             nums[i] is either 0 or 1.
 */
 // Solution
+
+#include <bits/stdc++.h>
+
+using namespace std;
+class Solution {
+public:
+    int longestSubarray(vector<int>& nums) {
+        if(nums.size()==0) return 0;
+
+        int zeroCount=0, ans=0;
+        for(int left=0, right=0; right<nums.size(); right++)
+        {
+            if(nums[right]==0)
+                zeroCount++;
+            //shrink
+            while(zeroCount > 1)
+            {
+                if( nums[left]==0)
+                    zeroCount--;
+                left++;
+            }
+
+            //update answer
+            ans=max(right-left+1-zeroCount, ans);
+        }
+
+        return (zeroCount==0)? ans-1:ans;
+    }
+};

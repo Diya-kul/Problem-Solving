@@ -9,6 +9,9 @@ Explanation: The answer is "abc", with the length of 3. Note that "bca" and "cab
 */
 
 //SOLUTION:
+# include <iostream>
+# include <vector>
+using namespace std;
 int lengthOfLongestSubstring(string s) {
         if( s.size() == 0)  return 0;
 

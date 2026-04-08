@@ -63,7 +63,7 @@ int main()
     //LOGIC 
     unordered_map<int ,int> mp;
     int ans=0;
-    for(int left=0, right=0; right <fruit.size(); ans=max(right-left+1,ans), right++)
+    for(int left=0, right=0; right <fruit.size(); right++)
     {
         mp[fruit[right]]++;
 
@@ -75,6 +75,8 @@ int main()
                 mp.erase(fruit[left]);
             left++;
         }
+
+        ans=max(right-left+1,ans);
     }
 
     //OUTPUT

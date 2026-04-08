@@ -1,18 +1,22 @@
-LeetCode: 47. Permutations II
-Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
-Example :
-Input: nums = [1,1,2]
-Output:
-[[1,1,2],
- [1,2,1],
- [2,1,1]]
+// LeetCode: 47. Permutations II
+// Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
+// Example :
+// Input: nums = [1,1,2]
+// Output:
+// [[1,1,2],
+//  [1,2,1],
+//  [2,1,1]]
 
 
-  Approach: To handle duplicates we sort the array first and then skip duplicates during the backtracking process.
-  This prevents the duplicate permutations from ever being generated in the first place.
+//   Approach: To handle duplicates we sort the array first and then skip duplicates during the backtracking process.
+//   This prevents the duplicate permutations from ever being generated in the first place.
 
 
-solution:
+// solution:
+
+#include <bits/stdc++.h>
+
+using namespace std;
 class Solution {
     private:
     void logic( vector<int>& num, vector<int>& temp, vector<bool>& used, vector<vector<int>>& ans)

@@ -26,9 +26,13 @@
             Sliding window (at most K)
             track the count of odd no.
             exactly(k)= atmost(K)-atmost(K-1)
+    Complexity:
+            Time: O(n) 
+            Space: O(1)
     OUTPUT:
             Count of subarray that contains exactly k odd numbers.
 */
+
 # include <bits/stdc++.h>
 using namespace std;
 class Solution {

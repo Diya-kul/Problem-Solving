@@ -25,6 +25,11 @@
         1. count the frequency of each element
         2. check frequency 
         3. print output        
+
+    COMPLEXITY-
+        Time: O(n) 
+        Space: O(n) 
+        
 */
 
 # include <bits/stdc++.h>

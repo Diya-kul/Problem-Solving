@@ -75,7 +75,7 @@ public:
 };
 
 int main(){
-        vector<int> nums = {0,1,2,2,3,0,4,2};
+        vector<int> nums = {9,5,0,0,1,5,6};
         int val=2;
         Solution sl;
         int k = sl.removeElement(nums,val); 

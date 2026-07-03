@@ -87,7 +87,7 @@ int romanToInt(char* s) {
 
 int main()
 {
-    char s[] = "MCMXCIV";
+    char s[] = "LVIII";
 
     printf("%d",romanToInt(s));
     return 0;

@@ -1,0 +1,105 @@
+Generate Parentheses
+
+Problem Statement
+
+Given "n" pairs of parentheses, generate all possible combinations of well-formed (valid) parentheses.
+
+Example
+
+Input
+
+n = 3
+
+Output
+
+["((()))","(()())","(())()","()(())","()()()"]
+
+---
+
+Approach
+
+This problem is solved using Backtracking.
+
+At each step:
+
+- Add an opening parenthesis "(" if the number of opening parentheses used is less than "n".
+- Add a closing parenthesis ")" only if the number of closing parentheses used is less than the number of opening parentheses used.
+- When the current string reaches a length of "2 * n", a valid combination has been formed and is added to the result.
+
+This ensures that every generated string is valid without checking it afterward.
+
+---
+
+Algorithm
+
+1. Create an empty list to store the answer.
+2. Start recursion with:
+   - Current string = """"
+   - Open count = "0"
+   - Close count = "0"
+3. If the current string length equals "2 * n", add it to the answer.
+4. If "open < n", append "(" and recurse.
+5. If "close < open", append ")" and recurse.
+6. Return the final list.
+
+---
+
+Java Solution
+
+class Solution {
+    public List<String> generateParenthesis(int n) {
+
+        List<String> ans = new ArrayList<>();
+        backtrack(ans, "", 0, 0, n);
+        return ans;
+    }
+
+    private void backtrack(List<String> ans, String curr, int open, int close, int n) {
+
+        if (curr.length() == 2 * n) {
+            ans.add(curr);
+            return;
+        }
+
+        if (open < n) {
+            backtrack(ans, curr + "(", open + 1, close, n);
+        }
+
+        if (close < open) {
+            backtrack(ans, curr + ")", open, close + 1, n);
+        }
+    }
+}
+
+---
+
+Complexity Analysis
+
+- Time Complexity: "O(4^n / √n)" (Catalan Number)
+- Space Complexity: "O(n)" (Recursion stack, excluding output)
+
+---
+
+Key Concepts
+
+- Backtracking
+- Recursion
+- Depth-First Search (DFS)
+- Decision Tree
+- Constraint-based Generation
+
+---
+
+Learning Outcome
+
+This problem helps in understanding:
+
+- How backtracking explores all possible choices.
+- How to prune invalid states early.
+- Recursive decision-making.
+- Generating combinations efficiently without validating every generated string.
+
+---
+
+Difficulty: Medium
+Language: Java

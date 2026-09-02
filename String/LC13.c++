@@ -61,6 +61,7 @@
 
 # include <stdio.h>
 # include <string.h>
+
 int romanCharToInt(char c) {
     switch (c) {
         case 'I': return 1;
@@ -74,28 +75,27 @@ int romanCharToInt(char c) {
     }
 }
 int romanToInt(char* s) {
-   int total = 0;
+    int total = 0;
     int i;
 
-  for (i = 0; i < strlen(s); i++) {
+    for (i = 0; i < strlen(s)-1; i++) {
         int currentVal = romanCharToInt(s[i]);
+        
+        int nextVal = romanCharToInt(s[i + 1]);
 
-        if (i + 1 < strlen(s)) {
-            int nextVal = romanCharToInt(s[i + 1]);
-
-            if (currentVal < nextVal) {
-                total -= currentVal;
-            } else {
-                 total += currentVal;
-            }
-
+        if (currentVal < nextVal) // checking the rule of roman number "Roman numerals are usually written largest to smallest from left to right."
+        {
+            total -= currentVal; // if no then subtract
         } else {
-            
-            total += currentVal;
+             total += currentVal; // if yes then add
         }
     }
+
+    total +=romanCharToInt(s[i]); // adding last value directly because it has nothing to comapre with
+    
     return total;
 }            
+    
 
 int main()
 {

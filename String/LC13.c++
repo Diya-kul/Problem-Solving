@@ -45,6 +45,18 @@
                 It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 */
 
+/*
+    KEY OBSERVATION:
+        - Largest to smallest Roman character hote hai
+        - Each roman character ki value lene ke liye hum switch case or unordered hash map ka use kr skte h.
+        -if string me smallest to larget roman character hai like  IV then value(I) - value(V) because value(V) > value(I).
+
+    Main Rule 
+        Current < Next  → Subtract
+        Current >= Next → Add
+    Pattern: String Traversal + Comparison
+*/
+
 //SOLUTION:
 
 # include <stdio.h>
